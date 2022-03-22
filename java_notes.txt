@@ -1,0 +1,545 @@
+1. /* text */
+The compiler ignores everything from /* to */.
+/** documentation */
+This indicates a documentation comment (doc comment, for short). The compiler ignores this kind of comment, just like it ignores comments that use /* and */. The javadoc tool uses doc comments when preparing automatically generated documentation. For more information on javadoc, see the Javadoc™ tool documentation .
+// text
+The compiler ignores everything from // to the end of the line.
+
+2. //IMPORT MATH CLASS
+import java.lang.Math.*;
+
+3. All classes require psvm
+   
+public static void main(String[] args){
+    System.out.print("Hello world");
+    solve(A,B,C,D,E);
+}
+
+4. Initialize an array
+// int[] data = {10,20,30,40,50,60,71,80,90,91};
+int[] a = {1,2,3,4,5};
+int[][] b = {{1,3}, {2, 5}};
+int[] res = new int[B.length];
+
+
+5. Initialize a large number
+mod = (int)Math.pow(10,9) + 7;
+
+6. A working example
+import java.lang.Math.*;
+public class Solution {
+    public int[] solve(int[][] A, int[] B, int[] C, int[] D, int[] E){
+        int n = A.length, m = A[0].length, mod = (int)Math.pow(10,9) + 7;
+        // System.out.print(n + ", " + m + ", " + mod);
+        int[] res = new int[B.length];
+        res[0] = 1;
+        res[1] = 2;
+        return res;
+    }
+    
+    public static void main(String[] args){
+        Solution s = new Solution();
+        
+        // System.out.println("Hello world");
+         int[][] A = {  {5, 17, 100, 11},
+                    {0, 0,  2,   8}};
+         int[] B = {1, 1};
+         int[] C = {1, 4};
+         int[] D = {2, 2};
+         int[] E = {2, 4};
+        
+         // int[] data = {10,20,30,40,50,60,71,80,90,91};
+        int[] res = s.solve(A,B,C,D,E);
+        for(int i=0;i<res.length;i++){
+            System.out.println(res[i]);
+        }
+    }
+}
+
+7. Final is used to apply restrictions on class, method, and variable.
+    The final class can't be inherited, final method can't be overridden,
+    and final variable value can't be changed. Final is a keyword
+
+8. The compiler and JVM enforce the public/private scheme
+9. Each variable and method may be declared as "public" if it may be used by clients, or "private"
+or "protected" if it is part of the implementation and not for use by clients.
+
+10. By default, java classes have the special class "Object" as a superclass
+
+11. The "extends Object" part can be omitted, since java classes extend Object by default if there is
+        no "extends" clause
+    public class Student extends Object {
+... <definition of the Student ivars and methods> ....
+    }
+
+12.  There is also a "default" protection level that you get when no public, private, or protected
+keyword is specified. In that case, the element is accessible to all other classes in the same 
+PACKAGE as the compiled class. This is an odd case, and I recommend against using it.
+
+13. protected" is similar to private, but allows access by subclasses or other classes in the same
+package (we will just use it to expose things to subclasses, the more common use).
+
+14. 
+this" in a method
+- "this" is a pointer to the receiver
+- Don't write "this.units", write: "units"
+- Don't write "this.setUnits(5)", write "setUnits(5);
+
+15. There are "wrapper" classes Integer, Boolean, Float, Double.... that can hold a single primitive 
+value. These classes use the "immutable" style -- they cannot be changed once constructed.
+
+16. Be careful of this error
+    error: non-static method return_array(int[]) cannot be referenced from a static context
+
+17.  Unlike C, a 2-d java array is not allocated as a single block of memory. Instead, it is
+implemented as a 1-D ARRAY OF POINTERS to 1-d arrays.
+
+18.  String objects use the "immutable" design style
+- Never change once created
+- i.e. there is no append() or reverse() method that changes the string state
+
+19. System.out is a STATIC OBJECT in the System class that represents standard output
+
+20. bit manipulation
+    or |
+    and &
+    xor ^
+    not ~
+
+21. Examples
+    // "static void main" must be defined in a public class.
+    public class Main {
+        public static int[] return_array(int[] input_array){
+            for(int i = 0; i < input_array.length; i++){
+                input_array[i] += 5;
+            }
+            return input_array;
+        }
+        public static void main(String[] args) {
+            System.out.println("Hello World!");
+            System.out.println("I " +  "am " + "good");
+            int[] input_array = {1,2,3,4};
+            // int[] res = return_array(input_array);
+            
+            int[] res2 = new int[input_array.length];
+            res2 = return_array(input_array);
+            for(int i=0; i<res2.length; i++){
+                System.out.print(res2[i]+ " ");
+            }
+            System.out.println();
+            
+            int[] res3 = new int[res2.length];
+            // use of arraycopy
+            // System.arraycopy(source array, source index, dest array, dest index, length);
+            System.arraycopy(res2, 1, res3, 0, 2);
+            for(int j =0; j<res3.length; j++){
+                System.out.print(res3[j]+ " ");
+            }
+            
+            int[][] m = new int[3][3];
+            int[][] n = {{1,2,3},{4,5,6},{7,8,9}};
+            
+            String a = "foo";
+            String b = a + " bar";
+            System.out.println(a+ " "+ b);
+            
+            // Used for comparing strings and objects
+            if (a.equals(b)){
+                System.out.println("True");
+            }else{
+                System.out.println("True");
+            }
+            
+            int len = a.length();
+            System.out.print(len);
+            // int place = a.indexOf("o");
+            System.out.print(" index of o in foo is "+ a.indexOf("o"));
+            System.out.println("UPPERCASE "+ a.toUpperCase()); //  toLowerCase()
+            
+            String sub = b.substring(1,3); //"oo"
+            System.out.println(sub);
+            
+            String aa = "ABC";
+            String bb = "abc";
+            
+            System.out.println(aa.equals(bb)); // false
+            System.out.println(aa.equalsIgnoreCase(bb)); //true
+            
+            String new_str_from_int = "****** "+ len + len + "&&& ";
+            System.out.println(new_str_from_int);
+            
+            // System.out.println(new_str_from_int[7]); // Incorrect
+            System.out.println(new_str_from_int.charAt(2)); //Corrct
+    
+        }
+    }
+
+
+22. Convert integer to binary and hashmap example
+import java.util.HashMap;
+public class Main {
+    public static void main(String[] args) {
+        int a = 5;
+        String s = ""; 
+        HashMap<Integer, Integer> h = new HashMap<>();
+        for(int i=0; i<32; i++)
+            h.put(i, 0);
+        
+        int ctr = 0;
+        while (a > 0){
+            
+            int y = a % 2;
+            if(y==1)
+                h.put(ctr, h.get(ctr)+1);
+            
+            s += y;
+            a /= 2;
+            ctr += 1;
+        }
+        System.out.print(s);
+        System.out.print(h);
+
+        int k = map.getOrDefault(ctr, 500);
+        System.out.print(k);
+
+        //Iterating through hashmap
+        int res = 1;
+        for(Map.Entry<ArrayList<Integer>, Integer> entry: hmap.entrySet())
+            res *= entry.getValue();
+    }
+}
+
+23. Packages
+import java.util.HashMap;
+import java.lang.Math.*;
+
+24. LONG vs INT??
+-OUR SOLUTION
+public class Solution {
+    public int cntBits(int[] A) {
+        long mod = 1000000007;
+        long val, n = A.length, res = 0;
+        int[] ctr = new int[32];
+        for(int x: A){
+           for(int i = 31; i >= 0; i--){
+               val = 1 << i;
+               if((x & val)!= 0){
+                   ctr[31-i] += 1;
+               }
+           }
+        }
+        
+        for(int x = 0; x <= 31; x++){
+            res += ((ctr[x]%mod)*((n-ctr[x])*2 % mod)) % mod;
+        }
+        
+        return (int)(res% mod);
+    }
+}
+
+-THEIR SOLUTION
+public class Solution {
+    public int cntBits(int[] A) {
+        long ans = 0;
+        int n = A.length, Mod = 1000 * 1000 * 1000 + 7;
+        //traverse over all bits
+        for (int i = 0; i < 31; i++) {
+            //count number of elements with ith bit = 0
+            long cnt = 0;
+            for (int j = 0; j < n; j++)
+                if ((A[j] & (1 << i)) == 0) cnt++;
+            //add to answer cnt*(n-cnt)*2
+            ans += (cnt * (n - cnt) * 2) % Mod;
+            ans %= Mod;
+        }
+        return (int) ans;
+    }
+}
+
+25. Computing length
+    Array = a.length
+    string = a.length()
+
+26. Hashset example
+    import java.util.HashSet;
+    HashSet<Character> hs = new HashSet<>();
+    for(int i=0; i<n; i++){
+        hs.add(A.charAt(i));
+    }
+
+27. Get type of variable
+    hs.getClass().getName()
+
+
+28. Iterating through a Hashmap
+    // iterating through key/value mappings
+    for(Entry<String, String> entry: languages.entrySet())
+
+    // iterating through keys
+    for(String key: languages.keySet()) 
+
+    // iterating through values
+    for(String value: languages.values())
+
+
+29. Creating a hashmap counter
+    for(int i: ar) hmap.put(i, hmap.getOrDefault(i, 0) + 1);
+
+
+28. Convert hashset to array
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+29. CONVERSIONS
+    -int to string [Integer.toString(), Integer.parseInt()]
+    int a = 10;
+    String s = Integer.toString(a);
+
+    -string to int
+    String b = "1234";
+    int val = Integer.parseInt(b);
+    System.out.println(val);
+
+    -string to array
+     and sort string
+
+     char[] ca = s.toCharArray();
+     Arrays.sort(ca);
+     String key = String.valueOf(ca);
+
+
+    -array to string
+
+
+30. collections
+    -ArrayList [add(), get(), size(), set()]
+        import java.util.ArrayList;
+        int num = 10;        
+        ArrayList<String> l = new ArrayList<>(num);
+        for(int i=0; i< num; i++)
+            l.add(Integer.toString(i));
+
+        for(int i=0; i< num; i++)
+            System.out.print(l.get(i)+ " ");
+
+        -another way to traverse
+        Iterator itr = l.iterator();
+        while(itr.hasNext()){
+            System.out.print(itr.next() + " "); 
+        }
+
+        -size of ArrayList
+        System.out.println(l.size());
+
+        -add at index
+        l.add(5, "acha");
+
+        -set value at specific index
+        l.set(0, "gabru");
+        l.set(l.size()-1, "jatt");
+
+        -remove element by index ot value
+        l.remove("jatt");
+        l.remove(0);
+
+        -for each loop
+        for(String s: l){
+            System.out.print(s + " ");
+        }
+
+        -sort
+        import java.util.Collections;
+        Collections.sort(l);
+
+        - reverse using set() and get()
+        while(left < right){
+            int temp = arr.get(left);
+            arr.set(left, arr.get(right));
+            arr.set(right, temp);
+            left++;
+            right--;
+        }
+
+
+    -HashSet [add()]
+        import java.util.HashSet;
+        String a = "abhishek";
+        HashSet<Character> hs = new HashSet<>();
+        for(int i=0; i<a.length(); i++){
+            hs.add(a.charAt(i));
+        }
+        
+        Iterator itr2 = hs.iterator();
+        while(itr2.hasNext()){
+            System.out.print(itr2.next()+ " ");
+        }
+
+    -Stack
+    Stack<TreeNode> stack = new Stack<>();
+
+    -ArrayDeque
+
+    -LinkedList
+    LinkedList<TreeNode> stack = new LinkedList<>();
+    stack.pollLast(); # get element from end
+    stack.add(a);
+
+    -TreeMap
+    public class Solution {
+    public int solve(ArrayList<Integer> A, ArrayList<Integer> B) {
+        int res = 0, net_end = 0;
+        Map<Integer, Integer> tmap = new TreeMap(); # treemap
+
+        for (int i = 0; i < B.size(); i++) {
+            int val = A.get(i);
+            if(tmap.containsKey(B.get(i))) # treemap
+                val = Math.max(val, tmap.get(B.get(i)));
+                
+            tmap.put(B.get(i), val);
+        }
+
+        for(Map.Entry e : tmap.entrySet()){
+            int b = (int)e.getKey(); 
+            int a = (int)e.getValue();
+
+            if(a >= net_end){
+                res++;
+                net_end = b;
+            }  
+        }
+
+        return res;
+    }
+
+
+31. arrays
+
+    - sort array
+    import java.util.Arrays;
+    Arrays.sort(); 
+
+
+32 math
+   import java.lang.Math;
+   mod = (int)Math.pow(10,9) + 7;
+
+33. In Java, List is an interface. That is, it cannot be instantiated directly.
+
+    Instead you can use ArrayList which is an implementation of that interface that uses 
+    an array as its backing store (hence the name).
+
+    Since ArrayList is a kind of List, you can easily upcast it:
+
+    List<T> mylist = new ArrayList<T>();
+
+
+34. Max value, min value
+    int max = Integer.MIN_VALUE;
+    int min = Integer.MAX_VALUE;
+
+35. collections sort with lambda comparator
+   
+    humans.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));
+
+    //sorting strings with lambda
+    String[] names = {"John", "Jane", "Mary", "Mike"};
+    Arrays.sort(names, (s1, s2) -> s1.compareTo(s2));
+    Collections.sort(stringList, String::compareToIgnoreCase);
+    Collections.sort(stringList, (s1, s2) -> s1.compareToIgnoreCase(s2));
+
+    //sorting integers with lambda
+    Integer[] numbers = {1, 2, 3, 4, 5};
+    Arrays.sort(numbers, (n1, n2) -> n1.compareTo(n2));
+    Collections.sort(numberList, Integer::compareTo); // only for arraylist
+
+    Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0])); // sort by first element
+
+    //Syntax
+    Arrays.sort(value, (obj1, obj2) -> Integer.compare(some_a, some_b));
+    
+36. string methods
+  
+    - check empty
+    A.isEmpty()
+
+    - access chacacter by index
+    A.charAt(i)
+
+
+37. Assign first row directly in a 2d matrix
+    dp[0] = matrix[0];
+
+
+38. Stringbuilder
+    
+    - new stringbuilder
+    StringBuilder sb = new StringBuilder();
+
+    - append a character
+    sb.append('a');
+
+    - length of stringbuilder
+    sb.length();
+
+    - delete character at specific index
+    sb.deleteCharAt(sb.length()-1);
+
+    - convert stringbuilder to string
+    sb.toString();
+
+    - insert character at specific index
+    sb.insert(0, 'a');
+
+    - replace character at specific index
+    sb.replace(0, 1, "b");
+
+    - reverse stringbuilder
+    sb.reverse();
+
+    - delete between two indexes
+    sb.delete(0, 2);// start: 0, end: 1 (upto end -1)
+
+
+CODE methods
+1. // build char count bucket : <charIndex, count>
+    for (int i = 0; i < n; i++) {            
+        int index = s.charAt(i) - 'a';
+        count[index]++;
+    }
+
+2. - reverse using set() and get()
+        while(left < right){
+            int temp = arr.get(left);
+            arr.set(left, arr.get(right));
+            arr.set(right, temp);
+            left++;
+            right--;
+        }
+
+  
+
+
+
+
+################################################33
+-data types
+-collections
+-data structure
+-convert one datatype to another
+-convert one datastructure to another
+-common utility patterns
+-various methods of hashmap/arraylist
+
+
+########################################################
+Reverse array??
+Last element??
+Equivalent of ~?
+Get max element in array?
+apply log to base 2?
+math module??
+java qeuivalent of itertools prodcut??
+looping backwards?
+revrsing array shortcut??
+default vs protected??
+autoboxing/unboxing??

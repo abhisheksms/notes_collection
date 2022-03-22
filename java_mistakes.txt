@@ -1,0 +1,739 @@
+1. ArrayList brackets
+   
+   #Incorrect
+   ArrayList<String> l = new ArrayList<String>;
+
+   #Correct
+   ArrayList<String> l = new ArrayList<String>();
+   or
+   ArrayList<String> l = new ArrayList<>();
+   or
+   ArrayList<String> l = new ArrayList();
+
+
+2. SEMICOLON
+
+   #Incorrect
+   l.add(5, "acha")
+   l.remove(0)
+   System.out.print(s + " ")
+   Collections.sort(l)
+   int[] hdfs = {1,2,3,2,1,4,5,4}
+   int res = solve(cost, n):
+
+   #Correct
+   l.add(5, "acha");
+   l.remove(0);
+   System.out.print(s + " ");
+   Collections.sort(l);
+   int[] hdfs = {1,2,3,2,1,4,5,4};
+   int res = solve(cost, n);
+
+
+3. For loops
+   
+   #Incorrect
+   for(String s: l):
+
+   #Correct
+   for(String s: l){
+   }
+
+
+4 printing
+  
+  #Incorrect
+  print(hmap.put(i, Integer.toString(i*10)));
+
+  #Correct
+  System.out.println(hmap.put(i, Integer.toString(i*10)));
+
+
+5. Get hashmap by key
+
+   #Incorrect
+   System.out.println(hmap.get[2].charAt(0));
+
+   #Correct
+   System.out.println(hmap.get(2).charAt(0));
+
+
+6. Cannot find symbol - Fuck you CamelCase
+   # Incorrect
+   class Solution {
+      boolean res = true;
+      public int balance(Treenode root){ #INCORRECT
+         if(root == null)
+               return 0;
+               
+         int left = balance(root.left);
+         int right = balance(root.right);
+         
+         if(Math.abs(left - right) > 1){
+               this.res = false;
+         }
+         
+         return 1+Math.max(left, right);
+      }
+   
+   # CORRECT
+   class Solution {
+      boolean res = true;
+      public int balance(TreeNode root){ #correct
+         if(root == null)
+               return 0;
+               
+         int left = balance(root.left);
+         int right = balance(root.right);
+         
+         if(Math.abs(left - right) > 1){
+               this.res = false;
+         }
+         
+         return 1+Math.max(left, right);
+      }
+      public boolean isBalanced(TreeNode root) {
+         int idk = balance(root);
+         return this.res;
+      }
+   }
+
+
+7. Always add a cosntructor
+
+#INCORRECT
+public class Node{
+        public int dist;
+        public TreeNode node;
+
+        # Incorrect no constructor
+    }
+
+#CORRECT
+public class Node{
+        public int dist;
+        public TreeNode node;
+
+        public Node(int dist, TreeNode node){
+            this.dist = dist;
+            this.node = node;
+        }
+    }
+
+
+8. Hashmap containsKey()
+
+#INCORRECT
+hmap.contains()
+
+#CORRECT
+hmap.containsKey()
+
+
+9. Queue has poll() to get the first value
+
+#INCORRECT
+TreeNode cur = q.pop();
+
+#CORRECT
+TreeNode cur = q.poll();
+
+
+10. new LinkedList<>() vs new LinkedList() - both are same
+
+
+11. How to write OR in java?
+#INCORRECT
+while(!stack.isEmpty() !! root != null){
+
+#CORRECT
+while(!stack.isEmpty() || root != null){
+
+
+12. What is the value of a node?
+#INCORRECT
+if(prev != null && prev.null > node.null){//Incorrect
+
+#CORRECT
+if(prev != null && prev.val > node.val){
+
+
+13. Set the first value
+"Khali(null) hoga tabhi toh gusaunga na"
+#INCORRECT
+if(first != null){
+
+#CORRECT
+if(first == null){
+
+
+14. Initializing tree node values
+#INCORRECT
+pred = ptr.left;
+
+#CORRECT
+TreeNode pred = ptr.left;
+
+
+15. Declaring Datatype of collections
+
+#INCORRECT
+LinkedList<Integer> stack = new LinkedList();
+
+#CORRECT
+LinkedList<TreeNode> stack = new LinkedList();
+
+
+16. Popping value in inorder traversal
+
+#INCORRECT
+TreeNode cur = l.pollLast();
+A = A.right; # incorrect
+
+#CORRECT
+TreeNode cur = l.pollLast();
+A = cur.right;
+
+
+17. Defining data types
+
+#INCORRECT
+public int get_next(root ptr){ 
+
+#CORRECT
+public Node get_next(Node ptr){ 
+
+
+18. How to define a queue in java?
+# INCORRECT
+# Line 18: error: Queue is abstract; cannot be instantiated
+Queue<TreeNode> q = new Queue<>();
+
+
+#CORRECT
+Queue<TreeNode> q = new LinkedList<>();
+ or
+Queue<TreeNode> q = new LinkedList();
+
+
+19. How to define a node value 
+#INCORRECT
+if(root.left > x) return 1+distanceroot(root.left, x);
+
+#CORRECT
+if(root.val > x) return 1+distanceroot(root.left, x);
+
+
+19. What the f***?
+#INCORRECT
+if(candies.get(i) < candies(i+1))
+
+#CORRECT
+if(A.get(i) < A.get(i+1))
+
+
+20. length() vs size()
+#INCORRECT
+for(int i=1; i<A.length(); i++){
+
+#CORRECT
+for(int i=1; i<A.size(); i++){
+
+
+
+21. n vs A
+#INCORRECT
+public int solve(int A) {
+if(n==0) return 1; // incorrect
+
+#CORRECT
+public int solve(int A) {
+if(A==0) return 1;
+
+
+22. Fucntion name calls
+#INCORRECT
+class Solution {
+    public int tribonacci(int n) {
+        if (n == 0) return 0;
+        if (n == 1 || n == 2) return 1;
+        return fib(n-1) + fib(n-2) + fib(n-3); //Incorrect
+        
+    }
+}
+
+#CORRECT
+class Solution {
+    public int tribonacci(int n) {
+        if (n == 0) return 0;
+        if (n == 1 || n == 2) return 1;
+        return tribonacci(n-1) + tribonacci(n-2) + tribonacci(n-3);
+    }
+}
+
+
+23. Missing declaration
+#INCORRECT
+static void pattern(int n){
+   for (i = 1; i <= n; i++)#incorrect
+      System.out.print(i);
+   System.out.println();
+   if(n > 1) pattern(n-1);
+}
+
+#CORRECT
+static void pattern(int n){
+   for (int i = 1; i <= n; i++)
+      System.out.print(i);
+   System.out.println();
+   if(n > 1) pattern(n-1);
+}
+
+
+
+24. Missed declaration
+#INCORRECT
+static int max(arr, index){
+
+#CORRECT
+static int max(int[] arr, int index){
+
+25. Function name after copy pasting code
+#INCORRECT
+static int subtract(int a, int b){
+        if (b==0) return a;
+        return add(a-1, b-1);#incorrect
+    }
+
+#CORRECT
+static int subtract(int a, int b){
+        if (b==0) return a;
+        return subtract(a-1, b-1);
+    }
+
+
+26. Missed type declaration
+#INCORRECT
+n = first.size();
+
+#CORRECT
+int n = first.size();
+
+
+
+27. error: ')' expected
+#INCORRECT
+maxp = Math.max(A[i], Math.max(tempval, maxp*A{i}));
+
+#CORRECT
+maxp = Math.max(A[i], Math.max(tempval, maxp*A[i]));
+
+
+
+
+28. error: array required, but List<Integer> found
+#INCORRECT
+for(int i=1; i<n; i++){
+      // int tempmin = minp;
+      int tempval = minp*A[i];                           #incorrect
+      minp = Math.min(A[i], tempval);                 #incorrect
+      maxp = Math.max(A[i], Math.max(tempval, maxp*A[i])); #incorrect
+      res = Math.max(res, maxp);
+   }
+
+#CORRECT
+for(int i=1; i<n; i++){
+      // int tempmin = minp;
+      int tempval = minp*A.get(i);
+      minp = Math.min(A.get(i), tempval);
+      maxp = Math.max(A.get(i), Math.max(tempval, maxp*A.get(i)));
+      res = Math.max(res, maxp);
+   }
+
+
+29.
+./Solution.java:8: error: array required, but String found
+#INCORRECT
+if(A[i]==B[j]){
+
+#CORRECT
+if(A.charAt(i)==B.charAt(j)){
+
+
+30. 
+java:16: error: cannot find symbol
+#INCORRECT
+int res = lcs(A, B, A.length, B.length, 0, 0);
+
+#CORRECT
+int res = lcs(A, B, A.length(), B.length(), 0, 0);
+
+
+31. 
+Wrong function calls
+#INCORRECT
+int val = Math.min(cost[i-1]+step(i-1), cost[i-2]+step(i-2));
+
+#CORRECT
+int val = Math.min(cost[i-1]+solve(i-1), cost[i-2]+solve(i-2));
+
+
+32. Passing incorrect parameters
+#INCORRECT
+int val = Math.min(cost[i-1]+solve(i-1), cost[i-2]+solve(i-2));
+
+#CORRECT
+int val = Math.min(cost[i-1]+solve(cost, i-1), cost[i-2]+solve(cost, i-2));
+
+
+33. MIssing declaration
+#INCORRECT
+int res = solve(cost, n);
+
+#CORRECT
+int n = cost.length;
+int res = solve(cost, n);
+
+
+34. WTF???????????
+#INCORRECT
+dp[i] = A[i] + Math.min(cost[i-1], cost[i-2]);
+
+#CORRECT
+dp[i] = cost[i] + Math.min(dp[i-1], dp[i-2]);
+
+
+
+35. Comma vs addition
+#INCORRECT
+b = Math.min(b, cost[i-1], a, cost[i-2]);
+
+#CORRECT
+b = Math.min(b+cost[i-1], a+cost[i-2]);
+
+
+
+
+36. Missed parntheses
+error can't find symbol
+
+#INCORRECT
+for(int i=2; i<=n; i++) //incorrect
+   temp_b = b;
+   b = Math.min(b+cost[i-1], a+cost[i-2]);
+   a = temp_b;
+
+
+#CORRECT
+for(int i=2; i<=n; i++){
+   temp_b = b;
+   b = Math.min(b+cost[i-1], a+cost[i-2]);
+   a = temp_b;
+}
+         
+
+37. Converting char to int
+#INCORRECT
+int a = int(s.charAt(i-1)); 
+int b = int(s.charAt(i-2));
+
+#CORRECT
+int a = Character.getNumericValue(s.charAt(i-1));
+int b = Character.getNumericValue(s.charAt(i-2));
+
+
+38. Initializing an int array
+#INCORRECT
+int dp = new int[n+1];
+
+#CORRECT
+int[] dp = new int[n+1];
+
+39. Checking if chraracter is a certain chraracter
+#INCORRECT
+if(s.charAt(0) == 0) return 0;
+
+#CORRECT
+if(s.charAt(0) == '0') return 0;
+         
+
+40. WTF?
+#INCORRECT
+int a = Character.getNumericValue(i-1);
+int b = Character.getNumericValue(i-2);
+
+#CORRECT
+int a = Character.getNumericValue(s.charAt(i-1));
+int b = Character.getNumericValue(s.charAt(i-2));
+
+
+41. How to take a loop of squares
+#INCORRECT
+for(int i=1; i<Math.sqrt(n)+1; i++){
+
+#CORRECT
+for(int i=1; i*i<=n; i++){ //this has O(n^(1/2))
+
+
+42. How to write a nested for loop
+#INCORRECT
+for(int i=1; i*i<=n; i++){ //fill dp[i]
+   for(int j=1; j*j<=n; j++){ //incorrect
+   }
+}
+
+#CORRECT
+for(int i=1; i*i<=n; i++){ //fill dp[i]
+   for(int j=1; j*j<=i; j++){ //correct
+   }
+}
+
+43. How to fill a column
+#INCORRECT
+for(int j=0; j<m; j++){ //incorrect
+   dp[j][0] = grid[j][0] + temp;
+   temp += grid[j][0];
+}
+
+#CORRECT
+for(int j=0; j<n; j++){
+   dp[j][0] = grid[j][0] + temp;
+   temp = dp[j][0];
+}
+
+
+45. How to find row and column length of a grid
+    and avoid ro coloumn confusion
+    m, row_len = grid.length;
+    n, col_len = grid[0].length;
+    dp[i][j]
+    dp[row_len][col_len]
+
+
+
+46. How not to avoid if condition 
+#INCORRECT
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        
+        for(int i=1; i<=amount; i++){
+            for(int j=0; j<coins.length; j++){
+                    dp[i] = Math.min(dp[i], 1 + dp[i - coins[j]]);
+            }
+        }
+        
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+}
+
+#CORRECT
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        
+        for(int i=1; i<=amount; i++){
+            for(int j=0; j<coins.length; j++){
+                if(i >= coins[j])               // correct
+                    dp[i] = Math.min(dp[i], 1 + dp[i - coins[j]]);
+            }
+        }
+        
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+}
+
+47. Check if length is greater or lesser(variable mistake)
+#INCORRECT
+if(j < n-1) c = dp[i-1][j+1];
+
+#CORRECT
+if(j < col_len-1) c = dp[i-1][j+1];
+
+
+48. Perform min of more than 2 numbers
+#INCORRECT
+dp[i][j] += Math.min(a,b,c);
+
+#CORRECT
+dp[i][j] += Math.min(Math.min(a,b),c);
+
+
+49. Assign value to a 2d dp matrix
+#INCORRECT
+dp[i][j] += Math.min(Math.min(a,b),c);
+
+#CORRECT
+dp[i][j] = matrix[i][j] + Math.min(Math.min(a,b),c);
+
+
+50. How to create an if statement
+#INCORRECT
+if hs.contains(i){
+
+#CORRECT
+if(hs.contains(i)){
+
+
+51. How to declare a Set
+#INCORRECT
+set<Integer> dayset;
+
+#CORRECT
+Set<Integer> dayset;
+
+
+52. Forgot to add elements to the set
+#CORRECT
+for(int d : days) dayset.add(d);
+
+
+
+53. size of ArrayList
+# INCORRECT
+if(idx == arr.length) return;
+
+# CORRECT
+if(idx == arr.size()) return;
+
+
+54. Accessing arraylist by index
+#INCORRECT
+temp(arr, B, sum + arr[idx], count + 1, idx + 1);
+
+
+#CORRECT
+temp(arr, B, sum + arr.get(idx), count + 1, idx + 1);
+
+
+55. Appending to arraylist, not string builder
+#INCORRECT
+ans.append(sb.toString());
+
+#CORRECT
+ans.add(sb.toString()); // or even push()
+
+
+56. Create an arraylist of arraylist
+# CORRECT
+ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();   
+
+
+57. error: incompatible types: void cannot be converted to int[]
+# INCORRECT
+return Arrays.sort(nums);
+
+# CORRECT
+Arrays.sort(nums);
+return nums;
+
+58. Index out of bounds/Incorrect variables
+# INCORRECT
+sort(nums, l, r, temp);
+
+# CORRECT
+sort(nums, 0, nums.length - 1, temp);
+sort(nums, 0, n-1, temp);
+
+
+59. How to declare an array
+# INCORRECT
+int temp = new int[n];
+
+# CORRECT
+int[] temp = new int[n];
+
+
+60. For loop
+# INCORRECT
+for(int i=l, i<=r; i++)
+
+# CORRECT
+for(int i=l; i<=r; i++) 
+
+
+61. = vs ==
+# INCORRECT
+else{nums[k] == temp[j]; j++;}
+
+# CORRECT
+else{nums[k] = temp[j]; j++;}
+
+
+62. Increment variables
+# INCORRECT
+while(j<=r){nums[k] = temp[j]; i++; j++;}
+
+# CORRECT
+while(j<=r){nums[k] = temp[j]; k++; j++;}
+
+
+63. How to declare a Fucntion
+# INCORRECT
+void swap(arr, i, j){
+
+# CORRECT
+void swap(int[] arr, int i, int j){
+
+
+64. How to handle loop control variable
+# INCORRECT
+for(int i=n-1; i>=0; i++){
+
+# CORRECT
+for(int i=n-1; i>=0; i--){
+
+
+65. Not adding static constant 
+# INCORRECT
+public void swap(int[] a, int x, int y){
+
+# CORRECT
+public static void swap(int[] a, int x, int y){
+
+
+66. Abstract methods cannot have a body
+# INCORRECT
+public abstract void fly(){
+   
+}
+
+# CORRECT
+public abstract void fly();
+
+66. Hashmap variable name
+# INCORRECT
+hmap.put(c, hmap.getOrDefault(c, 0) + 1);
+
+# CORRECT
+count.put(c, count.getOrDefault(c, 0) + 1);
+
+67. Length of a string
+# INCORRECT
+for(int i=0; i<s.length; i++) //Incorrect
+   count[s.charAt(i) - 'a']++;
+
+# CORRECT
+for(int i=0; i<s.length(); i++) count[s.charAt(i) - 'a']++;
+
+
+68. Variables, again
+# INCORRECT
+public boolean rotateString(String s, String goal) {
+        return A.length() == B.length() && (A+A).contains(B); //incorrect
+   }
+
+# CORRECT
+public boolean rotateString(String s, String goal) {
+        return s.length() == goal.length() && (s+s).contains(goal); //incorrect
+   }
+
+#################
+
+wsl2 
+VSCODE TO SERVER
+   
